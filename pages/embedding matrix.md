@@ -1,0 +1,54 @@
+- **Short Answer (TL;DR)**
+- Yes, you can think of it as having a “dictionary” (or more precisely, a big matrix) of embeddings for each possible token. Each token in the model’s vocabulary has a corresponding row in that matrix. When a new piece of text comes in, the model breaks it into tokens, looks up the embeddings for those tokens (i.e., it grabs the rows that correspond to each token index), and then feeds those embeddings into the rest of the network.
+- But it’s not a dictionary in the old-school “one whole word → one vector” sense (like in word2vec). Rather, each __subword token__ has a learned vector, and words can get split into multiple tokens.
+- **A More Detailed Explanation**
+- **1. The “Vocabulary” and Embedding Matrix**
+-  • **Vocabulary of tokens**: During training, a large list of tokens (subword units) is created—this list is commonly referred to as the __vocabulary__. For GPT-like models, this vocabulary can easily have 50 ,000 or more unique tokens.
+-  • **Embedding matrix**: Alongside that vocabulary, the model learns a big matrix of size . Each row corresponds to a token from the vocabulary; each column is a dimension in the embedding vector.
+- If you label each token with an integer index (e.g., token #0, token #1, …, token #49,999), then row #0 in the matrix is the embedding for token #0, row #1 is the embedding for token #1, and so on.
+- Once training is done, this embedding matrix is fixed (in typical inference scenarios). When the model sees text, it:
+-  1. Splits the text into tokens.
+-  2. Converts each token into its integer index.
+-  3. Looks up the corresponding row from the embedding matrix for each index.
+-  4. Passes those embeddings into the Transformer layers.
+- **2. What Does “Subword Token” Mean? (Examples)**
+- Modern language models rarely have a strict “one whole word = one token” approach. Instead, they use subword units. For instance, the word “unforgettable” could break into tokens like:
+- ["un", "forget", "table"]
+- But it might also get split differently depending on how the vocabulary was learned, such as:
+- ["un", "for", "get", "ta", "ble"]
+- or even
+- ["un", "forget", "able"]
+- It all depends on the statistical frequencies of certain character sequences in the training corpus.
+-  **Example A: “I’m reading books.”**
+-   • Suppose the vocabulary includes the tokens: ["I", "'m", " read", "ing", " book", "s", "."].
+-  • Then your input might get split as:
+-  1. "I"
+-  2. "'m"
+-  3. " read"
+-  4. "ing"
+-  5. " book"
+-  6. "s"
+-  7. "."
+-  • Each of these 7 tokens has a unique index, say [108, 3562, 345, 6789, 2341, 56, 15] (numbers made up for illustration).
+-  • The embedding matrix has a row for each index. So row #108 is the embedding vector for the token "I", row #3562 is the embedding for "'m", etc.
+-  **Example B: “Bonjour, comment ça va ?”** (French)
+-   • The model might tokenize it like:
+-  1. "Bon"
+-  2. "jour"
+-  3. ","
+-  4. " comment"
+-  5. " ç"
+-  6. "a"
+-  7. " va"
+-  8. " ?"
+-  • Again, each of these tokens is mapped to an integer index, and each integer index has a row in the embedding matrix.
+- **3. Why Is It Called “Dynamic,” Yet Pre-Learned?**
+-  • **Pre-learned weights**: The actual embeddings (the rows in that big matrix) were learned during the model’s massive pre-training. The model saw a ton of text, predicted next tokens, and slowly updated the embedding vectors so that they capture useful semantic/syntactic information.
+-  • **Dynamic usage**: When you (the user) type a brand-new sentence, the model __dynamically__ breaks it into tokens it knows and pulls out the relevant embeddings “on the fly.” But the __values__ in those embeddings are not newly trained for your sentence; they come from the fixed, pre-trained matrix.
+- In short:
+-  • We do __not__ train brand-new embeddings each time you submit a message.
+-  • We __do__ dynamically pick which rows (which token embeddings) to use based on your new text input.
+- **4. Contrast with Older Approaches**
+- In older methods like word2vec or GloVe:
+-  • The “dictionary” was effectively “one entire word → one vector.”
+-  • That meant a single vector for “bank,” even though “bank” has different meanings (river bank, money bank).

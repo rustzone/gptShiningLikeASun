@@ -1,9 +1,32 @@
-- ![050fdc47787c5ebf6286fd0e911819e7.jpg](../assets/050fdc47787c5ebf6286fd0e911819e7_1738564173320_0.jpg){:height 284, :width 188}
+- **железо:** [[nvidia a40]]
+- [[НАША ПЕРВАЯ НЕЙРОНКА]]
+  collapsed:: true
+	- [[char—внутрянка]]
+	- вопросы
+		- функция потерь: кросс-энтропия
+		- SOFTMAX?
+		- backpropagation through time
+		- матричное умножение, свертка
+- первым делом разгрести: [[структурка]]
+- ![28327ebfbc62f429362bc2606544d15d.jpg](../assets/28327ebfbc62f429362bc2606544d15d_1739005699967_0.jpg){:height 232, :width 181}
+  id:: 67a71ecf-a4e1-4d76-9d45-82f185cfb56b
+- [[исходный нейрон]]
+- [[[re-cognition] процесс осознания текста]]
+- just some [[fun things]]
+- # mathematics
+	- [[Neural Networks structure overview]]
+	- [[математика]]
+-
+- general concepts
+	- **Инференс (генерация):** Когда модель обучена, мы даём ей стартовую последовательность («Баба Я»), и она предсказывает следующий символ. Сэмплируем из распределения, дописываем, и снова подаём в вход. Так постепенно генерируется строка.
 - ### random question cloud
+- [[калибровка]] ; [[СЕМАНТИКА НУЛЕВОГО ВЕКТОРА]]
 - в нормализованных имбеддингах все векторы лежат на единичной гиперсфере
 - [[аффинное преобразование]] Ax+b — матрица поворота? растяжения?
 - у тебя есть embedding словарь смыслов?
-- ты используешь эмбеддинг словарь или нет?
 - семантика?
 - реальные нейроны
--
+- [[динамическая токинизация]]
+- [[embedding matrix]]
+- [[используешь ли ты embedding словарь?]]
+- ok, i get that you embed the words into a semantically ordered vector space for words. but do you to that on deeper neuron levels for intents, tones, general purpose of the text? do you have vectors for ides? if so, do you also have some kind of embedding matrix for tones, ideas, intents?. [[vectors for ideas]]

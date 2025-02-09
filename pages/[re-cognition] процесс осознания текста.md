@@ -1,0 +1,16 @@
+- алгоритм 
+    - 1. Splits the text into tokens.
+    -  2. Converts each token into its integer **index**.
+    -  3. Looks up the corresponding row from the embedding matrix for each index.
+    -  4. Passes those embeddings into the **Transformer** layers.
+- в чем динамичность?
+  
+-  • **Dynamic usage**: When you (the user) type a brand-new sentence, the model __dynamically__ breaks it into tokens it knows and pulls out the relevant embeddings “on the fly.” But the __values__ in those embeddings are not newly trained for your sentence; they come from the fixed, pre-trained matrix.
+- 
+- **4. Contrast with Older Approaches**
+- In older methods like word2vec or GloVe:
+-  • The “dictionary” was effectively “one entire word → one vector.”
+-  • That meant a single vector for “bank,” even though “bank” has different meanings (river bank, money bank). 
+- 
+- вопрос: у тебя сейчас 1 токен = 1 вектор? как ты выбираешь вектора в зависимости от конекста, в отличии о word2vec?
+- [[вопросы]]
