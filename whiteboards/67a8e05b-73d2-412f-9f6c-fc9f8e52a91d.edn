@@ -1,0 +1,27 @@
+{:blocks (
+{:block/content "хуйня"
+:block/format :markdown
+:block/left 
+{:block/uuid #uuid "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"}
+:block/parent 
+{:block/uuid #uuid "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"}
+:block/properties 
+{}
+:block/uuid #uuid "67a8e083-7a87-4b0b-baf9-3cf26a01ea30"})
+:pages (
+{:block/uuid #uuid "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"
+:block/properties 
+{:ls-type :whiteboard-page
+:logseq.tldraw.page 
+{:id "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"
+:name "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"
+:bindings 
+{}
+:nonce 1
+:assets []
+:shapes-index ()}}
+:block/updated-at 1739120816631
+:block/created-at 1739120731471
+:block/type "whiteboard"
+:block/name "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"
+:block/original-name "67a8e05b-73d2-412f-9f6c-fc9f8e52a91d"})}
