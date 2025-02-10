@@ -5,7 +5,7 @@
 - **1. The “Vocabulary” and Embedding Matrix**
 - • **Vocabulary of tokens**: During training, a large list of tokens (subword units) is created—this list is commonly referred to as the __vocabulary__. For GPT-like models, this vocabulary can easily have 50 ,000 or more unique tokens.
 - • **Embedding matrix**: Alongside that vocabulary, the model learns a big matrix of size . Each row corresponds to a token from the vocabulary; each column is a dimension in the embedding vector.
-- If you label each token with an integer index (e.g., token #0, token #1, …, token #49,999), then row #0 in the matrix is the embedding for token #0, row #1 is the embedding for token #1, and so on.
+- If you label each token with an integer index (e.g., token 0, token 1, …, token 49,999), then row 0 in the matrix is the embedding for token 0, row 1 is the embedding for token 1, and so on.
 - Once training is done, this embedding matrix is fixed (in typical inference scenarios). When the model sees text, it:
 - 1. Splits the text into tokens.
 - 2. Converts each token into its integer index.
@@ -29,8 +29,8 @@
 - 5. " book"
 - 6. "s"
 - 7. "."
-- • Each of these 7 tokens has a unique index, say [108, 3562, 345, 6789, 2341, 56, 15] (numbers made up for illustration).
-- • The embedding matrix has a row for each index. So row #108 is the embedding vector for the token "I", row #3562 is the embedding for "'m", etc.
+- • Each of these 7 tokens has a unique index, say 108, 3562, 345, 6789, 2341, 56, 15 (numbers made up for illustration).
+- • The embedding matrix has a row for each index. So row 108 is the embedding vector for the token "I", row 3562 is the embedding for "'m", etc.
 - **Example B: “Bonjour, comment ça va ?”** (French)
 - • The model might tokenize it like:
 - 1. "Bon"

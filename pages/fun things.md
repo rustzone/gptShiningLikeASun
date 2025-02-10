@@ -1,128 +1,128 @@
 - Below is a **non-exhaustive, eclectic list** of curiosities, oddities, and intriguing quirks that can emerge in or around large language models, their embeddings, and their behaviors. Think of this as a grab-bag of interesting phenomena you might encounter when digging deeper into how these models work and sometimes misbehave.^^^^
 - ---
 - ## **1. The Zero Vector in Embedding Space**
-    - **What is it?** Sometimes referred to as the “null” embedding or a vector of all zeros.
-    - **Why it’s curious:** In theory, a zero vector could mean “no information,” but sometimes it can pop up in the learned embedding space or be used as a placeholder.
-    - **Weird effect:** If certain tokens or inputs produce an embedding close to zero, they might have minimal impact on the model’s output, effectively becoming “invisible.”
-    - ---
+	- **What is it?** Sometimes referred to as the “null” embedding or a vector of all zeros.
+	- **Why it’s curious:** In theory, a zero vector could mean “no information,” but sometimes it can pop up in the learned embedding space or be used as a placeholder.
+	- **Weird effect:** If certain tokens or inputs produce an embedding close to zero, they might have minimal impact on the model’s output, effectively becoming “invisible.”
+	- ---
 - ## **2. Dead Neurons**
-    - **What are they?** Neurons that never activate (output is always zero after ReLU, for instance).
-    - **Why it’s curious:** If a neuron never fires, it doesn’t contribute to the network’s decisions. This can happen in large networks where some weights push the neuron’s pre-activation below zero perpetually.
-    - **Long-term effect:** Sometimes they can be “resurrected” by weight updates, sometimes they remain dead for the entire training run.
-    - ---
+	- **What are they?** Neurons that never activate (output is always zero after ReLU, for instance).
+	- **Why it’s curious:** If a neuron never fires, it doesn’t contribute to the network’s decisions. This can happen in large networks where some weights push the neuron’s pre-activation below zero perpetually.
+	- **Long-term effect:** Sometimes they can be “resurrected” by weight updates, sometimes they remain dead for the entire training run.
+	- ---
 - ## **3. ‘Ghost’ or Unused Tokens**
-    - **Definition:** Tokens that exist in the vocabulary but almost never appear in training data (e.g., obscure words or special characters).
-    - **Odd behavior:** The model’s embedding for these tokens might end up semi-random or poorly calibrated, leading to unpredictable outputs if you force their usage.
-    - ---
+	- **Definition:** Tokens that exist in the vocabulary but almost never appear in training data (e.g., obscure words or special characters).
+	- **Odd behavior:** The model’s embedding for these tokens might end up semi-random or poorly calibrated, leading to unpredictable outputs if you force their usage.
+	- ---
 - ## **4. Attention Head Specialization**
-    - **Concept:** In transformer models, each “head” in the multi-head attention mechanism can develop unique roles (e.g., focusing on punctuation, mapping syntactic relationships, tracking certain semantic concepts).
-    - **Curiosity:** Some heads do apparently “strange” or “niche” tasks—like a head that always looks at the period at the end of a sentence, or a head that focuses on pronouns.
-    - **Weird case:** Occasionally, analyzing attention heads reveals emergent behaviors we never explicitly trained for.
-    - ---
+	- **Concept:** In transformer models, each “head” in the multi-head attention mechanism can develop unique roles (e.g., focusing on punctuation, mapping syntactic relationships, tracking certain semantic concepts).
+	- **Curiosity:** Some heads do apparently “strange” or “niche” tasks—like a head that always looks at the period at the end of a sentence, or a head that focuses on pronouns.
+	- **Weird case:** Occasionally, analyzing attention heads reveals emergent behaviors we never explicitly trained for.
+	- ---
 - ## **5. Hallucination Quirks**
-    - **Definition:** When the model confidently generates text that is factually incorrect or made up (a “hallucination”).
-    - **Curious twist:** Hallucinations might be triggered more often by certain queries (like “Make up a historical letter”), or by ambiguous prompts.
-    - **Why it happens:** The model is trained to continue patterns, not necessarily to verify truth. This can lead to surprising, sometimes creative, but incorrect outputs.
-    - ---
+	- **Definition:** When the model confidently generates text that is factually incorrect or made up (a “hallucination”).
+	- **Curious twist:** Hallucinations might be triggered more often by certain queries (like “Make up a historical letter”), or by ambiguous prompts.
+	- **Why it happens:** The model is trained to continue patterns, not necessarily to verify truth. This can lead to surprising, sometimes creative, but incorrect outputs.
+	- ---
 - ## **6. Embedding Space Anisotropy**
-    - **Explanation:** In large language models, embeddings often cluster in certain directions or “cones,” rather than being evenly distributed in all directions.
-    - **Curious effect:** This can cause certain tokens to be much closer together in the vector space than you’d expect, biasing similarity measures.
-    - **Research interest:** Efforts exist to “isotropize” embedding spaces for better geometric properties.
-    - ---
+	- **Explanation:** In large language models, embeddings often cluster in certain directions or “cones,” rather than being evenly distributed in all directions.
+	- **Curious effect:** This can cause certain tokens to be much closer together in the vector space than you’d expect, biasing similarity measures.
+	- **Research interest:** Efforts exist to “isotropize” embedding spaces for better geometric properties.
+	- ---
 - ## **7. Adversarial Prompts**
-    - **What are they?** Carefully crafted prompts meant to break or trick the model into producing odd outputs.
-    - **Fun quirk:** You might see elaborate nonsense instructions that suddenly cause bizarre or unhelpful replies.
-    - **Security angle:** Highlight the risk of prompt-based “injections” that steer the model away from safe or intended behavior.
-    - ---
+	- **What are they?** Carefully crafted prompts meant to break or trick the model into producing odd outputs.
+	- **Fun quirk:** You might see elaborate nonsense instructions that suddenly cause bizarre or unhelpful replies.
+	- **Security angle:** Highlight the risk of prompt-based “injections” that steer the model away from safe or intended behavior.
+	- ---
 - ## **8. “Hidden Context” or “Steganography” in Weights**
-    - **Weird phenomenon:** Researchers have found that neural networks can encode surprising amounts of data (like entire training examples) in seemingly unrelated parameters.
-    - **Implication:** Potential privacy leaks—if you can decode the hidden data from the model’s weights, you might reconstruct parts of the training set.
-    - ---
+	- **Weird phenomenon:** Researchers have found that neural networks can encode surprising amounts of data (like entire training examples) in seemingly unrelated parameters.
+	- **Implication:** Potential privacy leaks—if you can decode the hidden data from the model’s weights, you might reconstruct parts of the training set.
+	- ---
 - ## **9. “Lipstick Neuron” or Concept Neurons**
-    - **Idea:** Some individual neurons respond strongly to a particular concept (e.g., a certain style, color, or object).
-    - **Why it’s odd:** Despite being a “distributed representation,” now and then you find a neuron that’s fairly specialized (colloquially called “the lipstick neuron,” “the cat neuron,” etc.).
-    - **Reality check:** True single-neuron explanations are still rare and usually not 100% consistent, but they’re fascinating case studies.
-    - ---
+	- **Idea:** Some individual neurons respond strongly to a particular concept (e.g., a certain style, color, or object).
+	- **Why it’s odd:** Despite being a “distributed representation,” now and then you find a neuron that’s fairly specialized (colloquially called “the lipstick neuron,” “the cat neuron,” etc.).
+	- **Reality check:** True single-neuron explanations are still rare and usually not 100% consistent, but they’re fascinating case studies.
+	- ---
 - ## **10. Negative Prompting & Instruction Inversions**
-    - **Definition:** Telling the model what **not** to do or giving contradictory instructions.
-    - **Curious effect:** Sometimes the model’s compliance system (trained with instruction fine-tuning) can produce counterintuitive results—like a reversed or ironically literal interpretation.
-    - ---
+	- **Definition:** Telling the model what **not** to do or giving contradictory instructions.
+	- **Curious effect:** Sometimes the model’s compliance system (trained with instruction fine-tuning) can produce counterintuitive results—like a reversed or ironically literal interpretation.
+	- ---
 - ## **11. Stuck in Repetition Loops**
-    - **What is it?** Occasionally, a model gets stuck repeating the same word or phrase endlessly.
-    - **Why it’s weird:** Usually arises from the probability distribution collapsing in certain states, especially with low temperature or at edges of knowledge.
-    - **Common fix:** Introducing top-p (nucleus) sampling or other techniques to break the repetitive cycle.
-    - ---
+	- **What is it?** Occasionally, a model gets stuck repeating the same word or phrase endlessly.
+	- **Why it’s weird:** Usually arises from the probability distribution collapsing in certain states, especially with low temperature or at edges of knowledge.
+	- **Common fix:** Introducing top-p (nucleus) sampling or other techniques to break the repetitive cycle.
+	- ---
 - ## **12. Bizarre Edge Cases with Tokenization**
-    - **Definition:** Subword tokenization sometimes splits words in unexpected ways (like “un” + “##believ” + “##able”).
-    - **Curious example:** Strange splits lead to confusing behavior with certain compound words or non-Latin scripts.
-    - **Funny side effect:** Typos or made-up words might get split into subwords that have surprising semantic baggage.
-    - ---
+	- **Definition:** Subword tokenization sometimes splits words in unexpected ways (like “un” + “believ” + “able”).
+	- **Curious example:** Strange splits lead to confusing behavior with certain compound words or non-Latin scripts.
+	- **Funny side effect:** Typos or made-up words might get split into subwords that have surprising semantic baggage.
+	- ---
 - ## **13. Temperature 0 “Deterministic” Quirk**
-    - **Meaning:** When temperature is set to 0 in a language generation setting, the model always picks the highest-probability next token.
-    - **Odd side effect:** Can lead to extremely repetitive or bland text if the model’s top choice is extremely likely.
-    - **Eerie determinism:** Feels almost robotic, with no creativity—like a “most probable answer” machine.
-    - ---
+	- **Meaning:** When temperature is set to 0 in a language generation setting, the model always picks the highest-probability next token.
+	- **Odd side effect:** Can lead to extremely repetitive or bland text if the model’s top choice is extremely likely.
+	- **Eerie determinism:** Feels almost robotic, with no creativity—like a “most probable answer” machine.
+	- ---
 - ## **14. Weird BPE Mergers**
-    - **Subword merges:** Byte-Pair Encoding (BPE) merges frequently used pairs of characters over training.
-    - **Curiosity:** Some merges produce tokens that look downright silly or improbable in normal text.
-    - **Interesting note:** Rare merges can result in tokens that have partial meaning in one language and partial in another, creating bizarre cross-lingual tokens.
-    - ---
+	- **Subword merges:** Byte-Pair Encoding (BPE) merges frequently used pairs of characters over training.
+	- **Curiosity:** Some merges produce tokens that look downright silly or improbable in normal text.
+	- **Interesting note:** Rare merges can result in tokens that have partial meaning in one language and partial in another, creating bizarre cross-lingual tokens.
+	- ---
 - ## **15. Fake Citations or “Confabulated References”**
-    - **Definition:** When asked for sources, the model might produce realistic-sounding but non-existent references.
-    - **Why it’s strange:** The model tries to format citations that look valid (author names, journal titles, etc.), even though it’s basically “guessing.”
-    - **Hence:** A major challenge in high-stakes or academic usage.
-    - ---
+	- **Definition:** When asked for sources, the model might produce realistic-sounding but non-existent references.
+	- **Why it’s strange:** The model tries to format citations that look valid (author names, journal titles, etc.), even though it’s basically “guessing.”
+	- **Hence:** A major challenge in high-stakes or academic usage.
+	- ---
 - ## **16. Genre-Mixing and Unintended Style Shifts**
-    - **Example:** You start with a serious historical question, but the model replies in a whimsical fantasy style.
-    - **Cause:** The model might have latched onto certain context patterns in the conversation or recognized a subtle signal in the user’s phrasing.
-    - **Fun outcome:** Surreal cross-genre answers, comedic twists, or abrupt tonal changes.
-    - ---
+	- **Example:** You start with a serious historical question, but the model replies in a whimsical fantasy style.
+	- **Cause:** The model might have latched onto certain context patterns in the conversation or recognized a subtle signal in the user’s phrasing.
+	- **Fun outcome:** Surreal cross-genre answers, comedic twists, or abrupt tonal changes.
+	- ---
 - ## **17. Model “Amnesia” in Long Contexts**
-    - **What is it?** In extended dialogues or texts that approach the model’s context window limit, earlier content might effectively be “forgotten.”
-    - **Why it’s weird:** The model’s internal states fill up, overshadowing earlier tokens.
-    - **Result:** Contradictions or ignoring initial instructions if they’re too far back in the token sequence.
-    - ---
+	- **What is it?** In extended dialogues or texts that approach the model’s context window limit, earlier content might effectively be “forgotten.”
+	- **Why it’s weird:** The model’s internal states fill up, overshadowing earlier tokens.
+	- **Result:** Contradictions or ignoring initial instructions if they’re too far back in the token sequence.
+	- ---
 - ## **18. Idiosyncratic Phrases or “Memes” in Training Data**
-    - **What it is:** Large corpora can contain repeated phrases, memes, or bizarre text from the internet.
-    - **Funny effect:** The model can spontaneously regurgitate or remix them, leading to cameo appearances of old internet jokes.
-    - ---
+	- **What it is:** Large corpora can contain repeated phrases, memes, or bizarre text from the internet.
+	- **Funny effect:** The model can spontaneously regurgitate or remix them, leading to cameo appearances of old internet jokes.
+	- ---
 - ## **19. The Neural Network “Lottery Ticket Hypothesis”**
-    - **Basic notion:** In large networks, some sub-networks (“winning tickets”) can train effectively while others remain mostly dormant.
-    - **Curiosity:** Even a model that’s not explicitly designed to grow or prune might have subregions that do the heavy lifting.
-    - **Weird extension:** People prune large models to smaller “lucky” sub-networks that still perform well.
-    - ---
+	- **Basic notion:** In large networks, some sub-networks (“winning tickets”) can train effectively while others remain mostly dormant.
+	- **Curiosity:** Even a model that’s not explicitly designed to grow or prune might have subregions that do the heavy lifting.
+	- **Weird extension:** People prune large models to smaller “lucky” sub-networks that still perform well.
+	- ---
 - ## **20. Subtle Changes in Prompt Causing Huge Output Differences**
-    - **Definition:** Slight rephrases or ordering differences in your question can produce drastically different answers.
-    - **Curiosity:** Reflects how the model’s next-token probabilities can sharply shift with minor lexical or structural changes.
-    - **Fun experiments:** Try synonyms or swap the order of sentences to see big shifts in style or correctness.
-    - ---
+	- **Definition:** Slight rephrases or ordering differences in your question can produce drastically different answers.
+	- **Curiosity:** Reflects how the model’s next-token probabilities can sharply shift with minor lexical or structural changes.
+	- **Fun experiments:** Try synonyms or swap the order of sentences to see big shifts in style or correctness.
+	- ---
 - ## **21. “One-Token Off” Errors**
-    - **Meaning:** The model is nearly correct but picks a token that’s slightly off, e.g., using the wrong tense or a near-synonym.
-    - **Odd observation:** This can significantly change the meaning or correctness (like “2,047,483,647” vs. “2,147,483,647”).
-    - **Insight:** The model’s internal representation might be quite confident but still leans to a slightly suboptimal token.
-    - ---
+	- **Meaning:** The model is nearly correct but picks a token that’s slightly off, e.g., using the wrong tense or a near-synonym.
+	- **Odd observation:** This can significantly change the meaning or correctness (like “2,047,483,647” vs. “2,147,483,647”).
+	- **Insight:** The model’s internal representation might be quite confident but still leans to a slightly suboptimal token.
+	- ---
 - ## **22. Unintended Self-Consistency**
-    - **Definition:** If you ask a model to explain or reason about a statement it just made, it may invent a coherent explanation even if the original statement was random or wrong.
-    - **Curiosity:** The model tries to maintain an illusion of logic and consistency, a phenomenon often referred to as “rationalization.”
-    - ---
+	- **Definition:** If you ask a model to explain or reason about a statement it just made, it may invent a coherent explanation even if the original statement was random or wrong.
+	- **Curiosity:** The model tries to maintain an illusion of logic and consistency, a phenomenon often referred to as “rationalization.”
+	- ---
 - ## **23. Prompt Leaking or “Conversation Hijacking”**
-    - **Explanation:** In a multi-turn chat, hidden or system-level instructions can be “leaked” if the user crafts a cunning prompt that manipulates the context.
-    - **Why it’s odd:** The model tries to be helpful and might reveal internal instructions or details not intended for the user.
-    - **Security concern:** A major area of research to ensure private or system prompts remain hidden.
-    - ---
+	- **Explanation:** In a multi-turn chat, hidden or system-level instructions can be “leaked” if the user crafts a cunning prompt that manipulates the context.
+	- **Why it’s odd:** The model tries to be helpful and might reveal internal instructions or details not intended for the user.
+	- **Security concern:** A major area of research to ensure private or system prompts remain hidden.
+	- ---
 - ## **24. Linguistic Drift in Long-Form Generation**
-    - **What it is:** Over a long text, the model’s style or even language might slowly drift.
-    - **Why it’s interesting:** Subtle changes in phrasing or tone accumulate, especially if the model “forgets” or reinterprets earlier context.
-    - **Result:** You start in formal English and end up in a casual, slangy dialect or slip into another language entirely.
-    - ---
+	- **What it is:** Over a long text, the model’s style or even language might slowly drift.
+	- **Why it’s interesting:** Subtle changes in phrasing or tone accumulate, especially if the model “forgets” or reinterprets earlier context.
+	- **Result:** You start in formal English and end up in a casual, slangy dialect or slip into another language entirely.
+	- ---
 - ## **25. Hidden Markov Jumps in Probability**
-    - **Concept:** Even though the model is a continuous function, abrupt jumps in output probability can occur if certain token combinations lead to a strong context shift.
-    - **Why it’s fascinating:** The underlying function is huge (millions or billions of parameters), but small changes in context can trigger “phase shifts” in the network’s internal states.
-    - ---
+	- **Concept:** Even though the model is a continuous function, abrupt jumps in output probability can occur if certain token combinations lead to a strong context shift.
+	- **Why it’s fascinating:** The underlying function is huge (millions or billions of parameters), but small changes in context can trigger “phase shifts” in the network’s internal states.
+	- ---
 - ## **26. Emergent Tool Use**
-    - **Weird phenomenon:** Some advanced models spontaneously figure out how to “simulate” using external tools (like calculators) if trained with chain-of-thought or with examples referencing tools.
-    - **Curiosity:** The model might show partial reasoning steps that mimic an external function, even though it has no explicit tool integration.
-    - ---
+	- **Weird phenomenon:** Some advanced models spontaneously figure out how to “simulate” using external tools (like calculators) if trained with chain-of-thought or with examples referencing tools.
+	- **Curiosity:** The model might show partial reasoning steps that mimic an external function, even though it has no explicit tool integration.
+	- ---
 - ### **Wrap-Up Note**
-    - The field of large language models is ripe with these sorts of strange behaviors and emergent properties. Many revolve around how the **embedding space** interacts with **context**, how the **transformer’s attention** can produce unanticipated patterns, and how **sampling strategies** can yield bizarre or entertaining outputs.
-    - **Takeaway:** The technology is powerful yet quirky. While the underlying principles are purely numeric (weight matrices, dot products, activation functions), the combination of scale, data, and architecture leads to a wide variety of intriguing, sometimes unpredictable phenomena—far beyond what a single engineer might anticipate when first laying out the network’s design.
+	- The field of large language models is ripe with these sorts of strange behaviors and emergent properties. Many revolve around how the **embedding space** interacts with **context**, how the **transformer’s attention** can produce unanticipated patterns, and how **sampling strategies** can yield bizarre or entertaining outputs.
+	- **Takeaway:** The technology is powerful yet quirky. While the underlying principles are purely numeric (weight matrices, dot products, activation functions), the combination of scale, data, and architecture leads to a wide variety of intriguing, sometimes unpredictable phenomena—far beyond what a single engineer might anticipate when first laying out the network’s design.

@@ -420,4 +420,6 @@
  ;;      ;use Percent-encoding for other invalid characters
  :file/name-format :triple-lowbar
  :ui/show-brackets? false
- :graph/forcesettings {:link-dist 110}}
+ :graph/forcesettings {:link-dist 110
+ :charge-range 4000
+ :charge-strength -200}}
