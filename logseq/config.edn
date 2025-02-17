@@ -306,11 +306,11 @@
  ;; - Float between 0 and 1
  ;; higher values result in faster changes to the next review interval.
  ;; Default value: 0.5
- ;; :srs/learning-fraction 0.5
+ :srs/learning-fraction 0.5
 
  ;; Set the initial interval after the first successful review of a card.
  ;; Default value: 4
- ;; :srs/initial-interval 4
+ :srs/initial-interval 4
 
  ;; Hide specific block properties.
  ;; Example usage:

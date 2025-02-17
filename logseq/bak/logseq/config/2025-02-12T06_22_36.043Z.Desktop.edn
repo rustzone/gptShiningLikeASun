@@ -299,7 +299,7 @@
  ;;  :charge-range    600}   ; Default value: 600
 
  ;; Favorites to list on the left sidebar
- :favorites ["meta"]
+ :favorites ["[meta]" "meta"]
 
  ;; Set flashcards interval.
  ;; Expected value:
@@ -421,5 +421,9 @@
  :file/name-format :triple-lowbar
  :ui/show-brackets? false
  :graph/forcesettings {:link-dist 110
- :charge-range 4000
- :charge-strength -200}}
+ :charge-range 2900
+ :charge-strength -200}
+ :graph/settings {:orphan-pages? true
+ :builtin-pages? false
+ :journal? false
+ :excluded-pages? true}}
